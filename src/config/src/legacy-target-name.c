@@ -22,10 +22,13 @@ static char *w_legacy_name_format(const char *host, int port, const char *prefix
     char *name = NULL;
     size_t size = 0;
 
-    if (is_ipv6) {
+    /* Expanded the way w_set_legacy_server() stores it: kept as written when it doesn't expand. */
+    if (is_ipv6 && strlen(host) <= IPSIZE) {
         snprintf(expanded, sizeof(expanded), "%s", host);
-        OS_ExpandIPv6(expanded, IPSIZE);
-        host = expanded;
+
+        if (OS_ExpandIPv6(expanded, sizeof(expanded)) == OS_SUCCESS) {
+            host = expanded;
+        }
     }
 
     if (scope_id != 0) {

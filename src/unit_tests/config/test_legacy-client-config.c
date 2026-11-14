@@ -740,6 +740,31 @@ static void test_legacy_client_without_server_before_agent_does_not_warn(void **
     OS_ClearXML(&xml);
 }
 
+/* An <address> holding a ':' that isn't an IPv6 address, longer than one, is stored and
+ * named whole, terminated, instead of being cut to the IPv6 buffer. */
+static void test_legacy_client_keeps_a_long_address_with_a_colon_whole(void **state) {
+    OS_XML xml = {0};
+    xml_node **nodes;
+    agent cfg = {0};
+    const char *address = "not-an-ipv6:but-longer-than-forty-six-bytes.example.internal";
+    char info[1024];
+
+    snprintf(info, sizeof(info),
+             "<agent><manager><endpoint> is not configured. Using <client><server><address> '%s' "
+             "with the default port 1517 and the default endpoint prefix 'wazuh-manager'. Replace the "
+             "<client><server> block with a single <endpoint>[%s]:1517/wazuh-manager</endpoint>",
+             address, address);
+    expect_string(__wrap__minfo, formatted_msg, info);
+
+    assert_int_equal(parse_legacy_client("<server><address>not-an-ipv6:but-longer-than-forty-six-bytes."
+                                         "example.internal</address></server>", &xml, &nodes, &cfg), 0);
+
+    assert_string_equal(cfg.server[0].rip, address);
+
+    Free_Agent(&cfg);
+    clear_xml_block(&xml, nodes);
+}
+
 int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(test_targets_chosen_is_false_when_empty),
@@ -775,6 +800,7 @@ int main(void) {
         cmocka_unit_test(test_legacy_client_between_agent_managers_waits_for_the_last),
         cmocka_unit_test(test_legacy_clients_interleaved_with_agent_managers_wait_for_the_last),
         cmocka_unit_test(test_legacy_client_without_server_before_agent_does_not_warn),
+        cmocka_unit_test(test_legacy_client_keeps_a_long_address_with_a_colon_whole),
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }

@@ -10,17 +10,25 @@
 #include "shared.h"
 #include "legacy-server-entry.h"
 
-/* Install the single manager entry, with the NULL-rip sentinel at index 1. */
+/* Install the single manager entry, with the NULL-rip sentinel at index 1. An IPv6 host is
+ * stored expanded; one that doesn't expand, such as a hostname that happens to hold a ':',
+ * is kept as written, whatever its length. */
 static void w_set_legacy_server(agent *logr, const char *host, int port, const char *endpoint,
                                 uint32_t scope_id)
 {
-    os_calloc(2, sizeof(agent_server), logr->server);
-    os_strdup(host, logr->server[0].rip);
+    char expanded[IPSIZE + 1];
+    const char *rip = host;
 
-    if (strchr(logr->server[0].rip, ':') != NULL) {
-        os_realloc(logr->server[0].rip, IPSIZE + 1, logr->server[0].rip);
-        OS_ExpandIPv6(logr->server[0].rip, IPSIZE);
+    if (strchr(host, ':') != NULL && strlen(host) <= IPSIZE) {
+        snprintf(expanded, sizeof(expanded), "%s", host);
+
+        if (OS_ExpandIPv6(expanded, sizeof(expanded)) == OS_SUCCESS) {
+            rip = expanded;
+        }
     }
+
+    os_calloc(2, sizeof(agent_server), logr->server);
+    os_strdup(rip, logr->server[0].rip);
 
     if (endpoint[0] != '\0') {
         os_strdup(endpoint, logr->server[0].endpoint);
