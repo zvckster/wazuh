@@ -66,10 +66,11 @@ static int w_read_legacy_enrollment(const OS_XML *xml, xml_node *enrollment, age
     return ret;
 }
 
-/* Collect the <address> and <endpoint> of one <server>, unparsed: only the one the agent
- * ends up using is parsed, so a malformed value it drops cannot fail the configuration.
- * The MSI reconfigures a preserved 4.x file in place and, having no <agent> block to
- * target, writes its <endpoint> into a <server> one. */
+/* Collect the <address> and <endpoint> of one <server>. Only the one the agent ends up
+ * using is parsed with errors reported, so a malformed value it drops cannot fail the
+ * configuration; the others are parsed quietly, to name them. The MSI reconfigures a
+ * preserved 4.x file in place and, having no <agent> block to target, writes its
+ * <endpoint> into a <server> one. */
 static void w_collect_legacy_server(const OS_XML *xml, xml_node *server, w_legacy_targets_t *targets)
 {
     XML_NODE chld_node = OS_GetElementsbyNode(xml, server);
@@ -159,10 +160,11 @@ static int w_settle_legacy_targets(const OS_XML *xml, agent *logr, w_legacy_targ
  * only has <client>. The address is taken when neither an <agent><manager>, wherever it
  * sits in the file, nor an earlier <client> provides one. <enrollment> is read because it
  * carries the agent's identity, which has no 5.x replacement inside the legacy block:
- * dropping it makes the agent re-register under its hostname with no groups. Every other direct child is ignored, and
- * says so, since the block is 4.x's and its options are not. Of <server>'s own children
- * only <address> and <endpoint> are read; the message printed for the address names the
- * port in use and a copy-pasteable replacement for the whole block.
+ * dropping it makes the agent re-register under its hostname with no groups. Every other
+ * direct child is ignored, and says so, since the block is 4.x's and its options are not.
+ * Of <server>'s own children only <address> and <endpoint> are read; the message printed
+ * for the address names the port in use and a copy-pasteable replacement for the whole
+ * block.
  *
  * 5.x connects to a single manager (#37702). When the block names several, the last
  * <endpoint> wins, else the last <address>, and the others are named in a warning.

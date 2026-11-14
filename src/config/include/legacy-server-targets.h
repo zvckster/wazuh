@@ -73,11 +73,11 @@ void w_legacy_targets_warn_skipped(const w_legacy_targets_t *targets, const agen
 void w_legacy_targets_defer(agent *logr, w_legacy_targets_t *targets, int managers);
 
 /**
- * @brief Called each time an <agent><manager> sets the manager. After the last one the file
- *        holds, warns that the deferred <client> targets are ignored, naming the manager in
- *        use and the dropped ones, and releases them.
+ * @brief Called each time an <agent><manager> has been read and set the manager. After the
+ *        last one the deferred <client> targets wait for, warns that they are ignored,
+ *        naming the manager in use and the dropped ones, and releases them.
  */
-void w_legacy_targets_report_deferred(agent *logr);
+void w_legacy_targets_agent_manager_read(agent *logr);
 
 /**
  * @brief Release logr's deferred targets, if a failed read left any.

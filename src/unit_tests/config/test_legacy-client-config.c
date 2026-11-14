@@ -458,8 +458,9 @@ static void test_legacy_client_endpoint_wins_inside_one_server(void **state) {
     clear_xml_block(&xml, nodes);
 }
 
-/* Only the target in use is parsed, so a broken one that is dropped cannot stop the agent. */
-static void test_legacy_client_dropped_endpoint_is_not_parsed(void **state) {
+/* Only the target in use reports parse errors, so a broken one that is dropped cannot stop
+ * the agent. */
+static void test_legacy_client_dropped_broken_endpoint_does_not_fail_the_read(void **state) {
     OS_XML xml = {0};
     xml_node **nodes;
     agent cfg = {0};
@@ -757,7 +758,7 @@ int main(void) {
         cmocka_unit_test(test_targets_warn_skipped_is_silent_for_the_manager_in_use),
         cmocka_unit_test(test_legacy_client_endpoint_wins_over_a_later_address),
         cmocka_unit_test(test_legacy_client_endpoint_wins_inside_one_server),
-        cmocka_unit_test(test_legacy_client_dropped_endpoint_is_not_parsed),
+        cmocka_unit_test(test_legacy_client_dropped_broken_endpoint_does_not_fail_the_read),
         cmocka_unit_test(test_second_legacy_client_server_is_ignored_with_warning),
         cmocka_unit_test(test_legacy_client_without_server_after_agent_does_not_warn),
         cmocka_unit_test(test_legacy_client_before_agent_is_ignored_with_warning),

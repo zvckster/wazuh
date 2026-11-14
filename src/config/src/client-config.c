@@ -362,7 +362,7 @@ static int w_normalize_agent_endpoint(const char *raw, char *out, size_t out_siz
 
             if (!(isalnum((unsigned char)c) || c == '-' || c == '_' || c == '.' || is_slash)) {
                 ENDPOINT_ERROR(report, "Invalid endpoint '%s': only letters, digits, '-', '_', '.', and '/' "
-                       "(as a segment separator) are allowed.", raw);
+                                       "(as a segment separator) are allowed.", raw);
                 return OS_INVALID;
             }
 
@@ -870,7 +870,7 @@ int Read_Agent_Manager(XML_NODE node, agent * logr)
     }
 
     /* A legacy <client> read above this block left its targets to be named now. */
-    w_legacy_targets_report_deferred(logr);
+    w_legacy_targets_agent_manager_read(logr);
 
     return (0);
 }

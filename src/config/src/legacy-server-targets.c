@@ -161,7 +161,7 @@ void w_legacy_targets_defer(agent *logr, w_legacy_targets_t *targets, int manage
     targets->count = 0;
 }
 
-void w_legacy_targets_report_deferred(agent *logr)
+void w_legacy_targets_agent_manager_read(agent *logr)
 {
     if (!logr->legacy_deferred || --logr->legacy_deferred_managers > 0) {
         return;
