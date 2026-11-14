@@ -13,12 +13,16 @@
 #include "os_xml.h"
 
 /**
- * @brief Count the <manager> blocks under every <agent> of every root ReadConfig() reads.
+ * @brief Count the <manager> blocks, under every <agent> of every root ReadConfig() reads,
+ *        that come after `position` in the document.
  *
- * Walks the same nodes config.c dispatches, so each block counted is one Read_Agent_Manager()
- * reads in the same call, or the read fails. OS_ElementExist() can't answer this: it misses a
- * match in a second root, or after an <agent> without <manager>.
+ * Walks the same nodes config.c dispatches, in the same order, so each block counted is one
+ * Read_Agent_Manager() reads later in the same call, or the read fails. OS_ElementExist()
+ * can't answer this: it misses a match in a second root, or after an <agent> without
+ * <manager>.
+ *
+ * @param position A node's key, its index in the parsed document.
  */
-int w_count_agent_manager_blocks(const OS_XML *xml);
+int w_count_agent_manager_blocks_after(const OS_XML *xml, unsigned int position);
 
 #endif /* AGENT_MANAGER_BLOCKS_H */

@@ -676,6 +676,69 @@ static void test_legacy_client_deferred_targets_are_freed_on_a_failed_read(void 
     OS_ClearXML(&xml);
 }
 
+/* A <client> between two <agent><manager> blocks waits for the second, which is the one
+ * the agent keeps, instead of naming the first as the manager in use. */
+static void test_legacy_client_between_agent_managers_waits_for_the_last(void **state) {
+    OS_XML xml = {0};
+    agent cfg = {0};
+
+    expect_string(__wrap__mwarn, formatted_msg, "Only one <manager> block is supported; the last one prevails.");
+    expect_string(__wrap__mwarn, formatted_msg,
+                  SKIPPED_WARNING("10.9.9.2:1517/wazuh-manager", "'" DIALED("10.0.0.1") "'"));
+
+    assert_int_equal(read_document("<ossec_config>"
+                                   "<agent><manager><endpoint>10.9.9.1:1517</endpoint></manager></agent>"
+                                   "<client><server><address>10.0.0.1</address></server></client>"
+                                   "<agent><manager><endpoint>10.9.9.2:1517</endpoint></manager></agent>"
+                                   "</ossec_config>", &xml, &cfg), 0);
+
+    assert_string_equal(cfg.server[0].rip, "10.9.9.2");
+
+    Free_Agent(&cfg);
+    OS_ClearXML(&xml);
+}
+
+/* <client>, manager, <client>, manager: both legacy blocks wait for the last manager and
+ * are named in one warning, since the agent ends up on that one. */
+static void test_legacy_clients_interleaved_with_agent_managers_wait_for_the_last(void **state) {
+    OS_XML xml = {0};
+    agent cfg = {0};
+
+    expect_string(__wrap__mwarn, formatted_msg, "Only one <manager> block is supported; the last one prevails.");
+    expect_string(__wrap__mwarn, formatted_msg,
+                  SKIPPED_WARNING("10.9.9.2:1517/wazuh-manager",
+                                  "'" DIALED("10.0.0.1") "', '" DIALED("10.0.0.2") "'"));
+
+    assert_int_equal(read_document("<ossec_config>"
+                                   "<client><server><address>10.0.0.1</address></server></client>"
+                                   "<agent><manager><endpoint>10.9.9.1:1517</endpoint></manager></agent>"
+                                   "<client><server><address>10.0.0.2</address></server></client>"
+                                   "<agent><manager><endpoint>10.9.9.2:1517</endpoint></manager></agent>"
+                                   "</ossec_config>", &xml, &cfg), 0);
+
+    assert_string_equal(cfg.server[0].rip, "10.9.9.2");
+
+    Free_Agent(&cfg);
+    OS_ClearXML(&xml);
+}
+
+/* A <client> holding only <enrollment> above an <agent><manager> has nothing to name. */
+static void test_legacy_client_without_server_before_agent_does_not_warn(void **state) {
+    OS_XML xml = {0};
+    agent cfg = {0};
+
+    assert_int_equal(read_document("<ossec_config>"
+                                   "<client><enrollment><agent_name>vm</agent_name></enrollment></client>"
+                                   "<agent><manager><endpoint>10.9.9.1:1517</endpoint></manager></agent>"
+                                   "</ossec_config>", &xml, &cfg), 0);
+
+    assert_string_equal(cfg.server[0].rip, "10.9.9.1");
+    assert_null(cfg.legacy_deferred);
+
+    Free_Agent(&cfg);
+    OS_ClearXML(&xml);
+}
+
 int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(test_targets_chosen_is_false_when_empty),
@@ -708,6 +771,9 @@ int main(void) {
         cmocka_unit_test(test_legacy_client_sees_an_agent_manager_after_another_agent),
         cmocka_unit_test(test_legacy_client_waits_for_the_last_agent_manager),
         cmocka_unit_test(test_legacy_client_deferred_targets_are_freed_on_a_failed_read),
+        cmocka_unit_test(test_legacy_client_between_agent_managers_waits_for_the_last),
+        cmocka_unit_test(test_legacy_clients_interleaved_with_agent_managers_wait_for_the_last),
+        cmocka_unit_test(test_legacy_client_without_server_before_agent_does_not_warn),
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }

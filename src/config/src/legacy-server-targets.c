@@ -141,6 +141,11 @@ void w_legacy_targets_defer(agent *logr, w_legacy_targets_t *targets, int manage
 {
     w_legacy_targets_t *deferred = logr->legacy_deferred;
 
+    /* A block with no <server> has nothing to name; an earlier one keeps its wait. */
+    if (targets->count == 0) {
+        return;
+    }
+
     if (!deferred) {
         os_calloc(1, sizeof(w_legacy_targets_t), deferred);
         logr->legacy_deferred = deferred;

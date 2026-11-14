@@ -127,22 +127,24 @@ static int w_read_legacy_children(const OS_XML *xml, XML_NODE node, agent *logr,
     return ret;
 }
 
-/* Decide what the block's targets are for. When <agent>, or an earlier <client>, already set
- * the manager, they are only named. When an <agent><manager> later in the file is going to
- * set it, they wait for it, so the warning can name that manager. Otherwise one of them is
- * the manager. */
+/* Decide what the block's targets are for. When an <agent><manager> later in the file is
+ * going to set the manager, they wait for the last one, so the warning names the manager
+ * the agent keeps. When <agent>, or an earlier <client>, already set it and nothing later
+ * will, they are only named. Otherwise one of them is the manager.
+ *
+ * `position` is where this block sits in the document. */
 static int w_settle_legacy_targets(const OS_XML *xml, agent *logr, w_legacy_targets_t *targets,
-                                   bool address_taken)
+                                   bool address_taken, unsigned int position)
 {
-    int managers = 0;
+    const int managers_ahead = w_count_agent_manager_blocks_after(xml, position);
 
-    if (address_taken) {
-        w_legacy_targets_warn_skipped(targets, &logr->server[0]);
+    if (managers_ahead > 0) {
+        w_legacy_targets_defer(logr, targets, managers_ahead);
         return 0;
     }
 
-    if ((managers = w_count_agent_manager_blocks(xml)) > 0) {
-        w_legacy_targets_defer(logr, targets, managers);
+    if (address_taken) {
+        w_legacy_targets_warn_skipped(targets, &logr->server[0]);
         return 0;
     }
 
@@ -175,7 +177,7 @@ int Read_Legacy_Client(const OS_XML *xml, XML_NODE node, void *d1, __attribute__
     int ret = w_read_legacy_children(xml, node, logr, &targets);
 
     if (ret == 0) {
-        ret = w_settle_legacy_targets(xml, logr, &targets, address_taken);
+        ret = w_settle_legacy_targets(xml, logr, &targets, address_taken, node[0]->key);
     }
 
     w_legacy_targets_free(&targets);

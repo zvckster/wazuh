@@ -68,7 +68,7 @@ void w_legacy_targets_warn_skipped(const w_legacy_targets_t *targets, const agen
  *        the file are read, so the warning can name the manager they set. targets is left
  *        empty; an earlier block's deferred targets are kept in front of them.
  *
- * @param managers How many <manager> blocks the file's <agent> blocks hold.
+ * @param managers How many <agent><manager> blocks the file holds after the <client> block.
  */
 void w_legacy_targets_defer(agent *logr, w_legacy_targets_t *targets, int managers);
 
