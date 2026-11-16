@@ -1,0 +1,426 @@
+[
+  {
+    "id": "D01-alerts-log",
+    "filename": "D01-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 1,
+    "source_bytes": 15672502,
+    "sample_bytes": 15672502,
+    "sample_sha256": "d3487f06a6f88a4fda68729a2a4b2a19371ce9cf4e62da446e9887dcd24bb016",
+    "sample_lines": 253147,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 15672502
+      }
+    ]
+  },
+  {
+    "id": "D01-alerts-json",
+    "filename": "D01-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 1,
+    "source_bytes": 21693630,
+    "sample_bytes": 21693630,
+    "sample_sha256": "9645e7087ec5cff1e11095d3783de2e2b0fc58854db212ffd103bdad2ee114f5",
+    "sample_lines": 13363,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 21693630
+      }
+    ]
+  },
+  {
+    "id": "D01-archives-json",
+    "filename": "D01-archives-json.bin",
+    "kind": "archives-json",
+    "day": 1,
+    "source_bytes": 1809027077,
+    "sample_bytes": 100657124,
+    "sample_sha256": "217e22629783da693cde74bda8c49f9914d8feefbc58cbfa5494b3ae55a76601",
+    "sample_lines": 62055,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33553445
+      },
+      {
+        "offset": 887737820,
+        "length": 33551390
+      },
+      {
+        "offset": 1775474788,
+        "length": 33552289
+      }
+    ]
+  },
+  {
+    "id": "D02-alerts-log",
+    "filename": "D02-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 2,
+    "source_bytes": 16960915,
+    "sample_bytes": 16960915,
+    "sample_sha256": "0477677734c6597f700f780bea9b698986b55235f22ab536b2d6ea186d0c7912",
+    "sample_lines": 277289,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 16960915
+      }
+    ]
+  },
+  {
+    "id": "D02-alerts-json",
+    "filename": "D02-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 2,
+    "source_bytes": 23572885,
+    "sample_bytes": 23572885,
+    "sample_sha256": "05a30193ae18cf00745d4ccc9762b1e3d97d447010d97d110bcf1b77e79482fb",
+    "sample_lines": 14390,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 23572885
+      }
+    ]
+  },
+  {
+    "id": "D02-archives-json",
+    "filename": "D02-archives-json.bin",
+    "kind": "archives-json",
+    "day": 2,
+    "source_bytes": 1836904599,
+    "sample_bytes": 100660959,
+    "sample_sha256": "b82beb752e1670cd858397f357c41311e781b6a09faa13f0e25a0e3d7720b6f7",
+    "sample_lines": 60605,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33553724
+      },
+      {
+        "offset": 901676431,
+        "length": 33552953
+      },
+      {
+        "offset": 1803350317,
+        "length": 33554282
+      }
+    ]
+  },
+  {
+    "id": "D03-alerts-log",
+    "filename": "D03-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 3,
+    "source_bytes": 17810670,
+    "sample_bytes": 17810670,
+    "sample_sha256": "7f0f3f441af062fd258dd80f5da9ddc4ae90180e01d389761cc214769c652e9c",
+    "sample_lines": 292121,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 17810670
+      }
+    ]
+  },
+  {
+    "id": "D03-alerts-json",
+    "filename": "D03-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 3,
+    "source_bytes": 25127432,
+    "sample_bytes": 25127432,
+    "sample_sha256": "f8065808324d9d4351d10685994350119d866b2a2705402e29804274c3491893",
+    "sample_lines": 15864,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 25127432
+      }
+    ]
+  },
+  {
+    "id": "D03-archives-json",
+    "filename": "D03-archives-json.bin",
+    "kind": "archives-json",
+    "day": 3,
+    "source_bytes": 1837370683,
+    "sample_bytes": 100655874,
+    "sample_sha256": "d95ba28a972113f8be5fdf6f76591573386db5d53310959ca07bc97dba5bba0b",
+    "sample_lines": 60490,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33552007
+      },
+      {
+        "offset": 901909538,
+        "length": 33551187
+      },
+      {
+        "offset": 1803818003,
+        "length": 33552680
+      }
+    ]
+  },
+  {
+    "id": "D04-alerts-log",
+    "filename": "D04-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 4,
+    "source_bytes": 48137238,
+    "sample_bytes": 48137238,
+    "sample_sha256": "63707855d9a9424412ba080c5b8a5e753344c5e7d1f2b3a3bd904d24100c0b92",
+    "sample_lines": 553262,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 48137238
+      }
+    ]
+  },
+  {
+    "id": "D04-alerts-json",
+    "filename": "D04-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 4,
+    "source_bytes": 47468618,
+    "sample_bytes": 47468618,
+    "sample_sha256": "996e3a1188e66037d5f2a68a96d57e7a338fde7d6ada1b89147ad2891f779881",
+    "sample_lines": 28495,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 47468618
+      }
+    ]
+  },
+  {
+    "id": "D04-archives-json",
+    "filename": "D04-archives-json.bin",
+    "kind": "archives-json",
+    "day": 4,
+    "source_bytes": 2335261412,
+    "sample_bytes": 100656402,
+    "sample_sha256": "66ab21b29d88fca5176f37c9aae76e52c33f5870c2c5826f86c23686475072dd",
+    "sample_lines": 53633,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33552425
+      },
+      {
+        "offset": 1150854747,
+        "length": 33551615
+      },
+      {
+        "offset": 2301709050,
+        "length": 33552362
+      }
+    ]
+  },
+  {
+    "id": "D05-alerts-log",
+    "filename": "D05-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 5,
+    "source_bytes": 19941048,
+    "sample_bytes": 19941048,
+    "sample_sha256": "c15a977af49fff04f08e709201c534c8311026dad1298d84db7c840bc67a0934",
+    "sample_lines": 318938,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 19941048
+      }
+    ]
+  },
+  {
+    "id": "D05-alerts-json",
+    "filename": "D05-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 5,
+    "source_bytes": 28817736,
+    "sample_bytes": 28817736,
+    "sample_sha256": "f1e2cb737f07b1a857492e58e561557c8c67d11d0238bb1ee488b2866bdf1130",
+    "sample_lines": 18973,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 28817736
+      }
+    ]
+  },
+  {
+    "id": "D05-archives-json",
+    "filename": "D05-archives-json.bin",
+    "kind": "archives-json",
+    "day": 5,
+    "source_bytes": 2139087158,
+    "sample_bytes": 100657418,
+    "sample_sha256": "fe9cd3873396c4f6fcbb120a4b65cd119c70317219be1fdd1dfacf90e78bd611",
+    "sample_lines": 56982,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33553592
+      },
+      {
+        "offset": 1052768190,
+        "length": 33551138
+      },
+      {
+        "offset": 2105534470,
+        "length": 33552688
+      }
+    ]
+  },
+  {
+    "id": "D06-alerts-log",
+    "filename": "D06-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 6,
+    "source_bytes": 20163880,
+    "sample_bytes": 20163880,
+    "sample_sha256": "b012f4eedffac66a23781e13caee456938a1848fda1e7fe24283278eb7a1f621",
+    "sample_lines": 332214,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 20163880
+      }
+    ]
+  },
+  {
+    "id": "D06-alerts-json",
+    "filename": "D06-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 6,
+    "source_bytes": 27267706,
+    "sample_bytes": 27267706,
+    "sample_sha256": "476af61beee268811e9d1ced2d22972653a3225abdc60da7cf6b4658df75d9ba",
+    "sample_lines": 15159,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 27267706
+      }
+    ]
+  },
+  {
+    "id": "D06-archives-json",
+    "filename": "D06-archives-json.bin",
+    "kind": "archives-json",
+    "day": 6,
+    "source_bytes": 2224097374,
+    "sample_bytes": 100656546,
+    "sample_sha256": "bdaa43b4194826045ff87aff2d1790f2d707e898a881a9c54faf43e528a8df67",
+    "sample_lines": 56397,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33551714
+      },
+      {
+        "offset": 1095272575,
+        "length": 33551539
+      },
+      {
+        "offset": 2190544081,
+        "length": 33553293
+      }
+    ]
+  },
+  {
+    "id": "D07-alerts-log",
+    "filename": "D07-alerts-log.bin",
+    "kind": "alerts-log",
+    "day": 7,
+    "source_bytes": 16681440,
+    "sample_bytes": 16681440,
+    "sample_sha256": "dff49257b1ff9f0e69114d5f5a1fa07ad795dd8a9afb58313a043f03f9aab575",
+    "sample_lines": 271790,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 16681440
+      }
+    ]
+  },
+  {
+    "id": "D07-alerts-json",
+    "filename": "D07-alerts-json.bin",
+    "kind": "alerts-json",
+    "day": 7,
+    "source_bytes": 22903946,
+    "sample_bytes": 22903946,
+    "sample_sha256": "3ac7b95290def218a98826f57d8b4008216cd5083e37c96bdb344bfb9c186d9c",
+    "sample_lines": 13473,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 22903946
+      }
+    ]
+  },
+  {
+    "id": "D07-archives-json",
+    "filename": "D07-archives-json.bin",
+    "kind": "archives-json",
+    "day": 7,
+    "source_bytes": 2014638542,
+    "sample_bytes": 100657874,
+    "sample_sha256": "fa3230378d7d7b4827b75168b8bb1244ea3a5f7ac552a2fea79aaa72e3c8bb1a",
+    "sample_lines": 55978,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 33552586
+      },
+      {
+        "offset": 990542213,
+        "length": 33553419
+      },
+      {
+        "offset": 1981086673,
+        "length": 33551869
+      }
+    ]
+  },
+  {
+    "id": "F01-archives-json",
+    "filename": "F01-archives-json.bin",
+    "kind": "archives-json",
+    "day": 1,
+    "source_bytes": 1809027077,
+    "sample_bytes": 1809027077,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 1809027077
+      }
+    ],
+    "sample_sha256": "a7d367bb76e8f3942018de3300b821820b6db80782bb69db36fa34da973ab5da",
+    "sample_lines": 1071708
+  },
+  {
+    "id": "F07-archives-json",
+    "filename": "F07-archives-json.bin",
+    "kind": "archives-json",
+    "day": 7,
+    "source_bytes": 2014638542,
+    "sample_bytes": 2014638542,
+    "segments": [
+      {
+        "offset": 0,
+        "length": 2014638542
+      }
+    ],
+    "sample_sha256": "bd8d06b66580cabcfaa2e499b7c2abea3bfd461a91e5b22927643813e4dc2320",
+    "sample_lines": 1140068
+  }
+]

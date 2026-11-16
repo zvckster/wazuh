@@ -1,0 +1,214 @@
+{
+  "primary": [
+    {
+      "kind": "alerts-log",
+      "algorithm": "gzip",
+      "raw_bytes": 155367693,
+      "compressed_bytes": 10013004,
+      "compression_ratio": 15.516591524381694,
+      "compression_wall_s": 2.132799355,
+      "compression_mib_s": 69.47216017579446,
+      "compression_cpu_s": 2.131411,
+      "decompression_wall_s": 0.36322799299999997,
+      "decompression_mib_s": 407.92609949914055,
+      "median_process_rss_mib": 6.08984375
+    },
+    {
+      "kind": "alerts-log",
+      "algorithm": "zstd",
+      "raw_bytes": 155367693,
+      "compressed_bytes": 8024285,
+      "compression_ratio": 19.36218529127517,
+      "compression_wall_s": 0.19769852999999998,
+      "compression_mib_s": 749.4753674364251,
+      "compression_cpu_s": 0.197546,
+      "decompression_wall_s": 0.09681119900000001,
+      "decompression_mib_s": 1530.5065936988456,
+      "median_process_rss_mib": 9.10546875
+    },
+    {
+      "kind": "alerts-json",
+      "algorithm": "gzip",
+      "raw_bytes": 196851953,
+      "compressed_bytes": 11924615,
+      "compression_ratio": 16.508034263579997,
+      "compression_wall_s": 2.7512192660000006,
+      "compression_mib_s": 68.23616497257773,
+      "compression_cpu_s": 2.750818,
+      "decompression_wall_s": 0.45753508600000004,
+      "decompression_mib_s": 410.3131266975889,
+      "median_process_rss_mib": 6.1015625
+    },
+    {
+      "kind": "alerts-json",
+      "algorithm": "zstd",
+      "raw_bytes": 196851953,
+      "compressed_bytes": 8979701,
+      "compression_ratio": 21.9218828110201,
+      "compression_wall_s": 0.224916781,
+      "compression_mib_s": 834.6760560765373,
+      "compression_cpu_s": 0.22479500000000002,
+      "decompression_wall_s": 0.117861359,
+      "decompression_mib_s": 1592.8261247226096,
+      "median_process_rss_mib": 9.140625
+    },
+    {
+      "kind": "archives-json",
+      "algorithm": "gzip",
+      "raw_bytes": 704602197,
+      "compressed_bytes": 42835862,
+      "compression_ratio": 16.448885679013532,
+      "compression_wall_s": 9.769139318,
+      "compression_mib_s": 68.78405524673026,
+      "compression_cpu_s": 9.759164000000002,
+      "decompression_wall_s": 1.627687032,
+      "decompression_mib_s": 412.8318315202482,
+      "median_process_rss_mib": 6.08984375
+    },
+    {
+      "kind": "archives-json",
+      "algorithm": "zstd",
+      "raw_bytes": 704602197,
+      "compressed_bytes": 27405427,
+      "compression_ratio": 25.71031631800519,
+      "compression_wall_s": 0.694840787,
+      "compression_mib_s": 967.0719265970737,
+      "compression_cpu_s": 0.6948300000000001,
+      "decompression_wall_s": 0.38180417099999997,
+      "decompression_mib_s": 1759.9624875819309,
+      "median_process_rss_mib": 9.125
+    },
+    {
+      "kind": "all",
+      "algorithm": "gzip",
+      "raw_bytes": 1056821843,
+      "compressed_bytes": 64773481,
+      "compression_ratio": 16.315656140203426,
+      "compression_wall_s": 14.653157938999998,
+      "compression_mib_s": 68.78134071043799,
+      "compression_cpu_s": 14.641392999999997,
+      "decompression_wall_s": 2.4484501109999997,
+      "decompression_mib_s": 411.63340194609276,
+      "median_process_rss_mib": 6.08984375
+    },
+    {
+      "kind": "all",
+      "algorithm": "zstd",
+      "raw_bytes": 1056821843,
+      "compressed_bytes": 44409413,
+      "compression_ratio": 23.797248637355327,
+      "compression_wall_s": 1.1174560980000001,
+      "compression_mib_s": 901.9270202114179,
+      "compression_cpu_s": 1.117171,
+      "decompression_wall_s": 0.596476729,
+      "decompression_mib_s": 1689.6951711358688,
+      "median_process_rss_mib": 9.125
+    }
+  ],
+  "improvements": [
+    {
+      "kind": "alerts-log",
+      "compressed_size_reduction_pct": 19.861362284485253,
+      "compression_speedup": 10.788139674078508,
+      "cpu_reduction_pct": 90.73167962443658,
+      "decompression_speedup": 3.7519212317574944
+    },
+    {
+      "kind": "alerts-json",
+      "compressed_size_reduction_pct": 24.696092913691558,
+      "compression_speedup": 12.232165398098955,
+      "cpu_reduction_pct": 91.82806714221006,
+      "decompression_speedup": 3.8819770099545523
+    },
+    {
+      "kind": "archives-json",
+      "compressed_size_reduction_pct": 36.02223529434285,
+      "compression_speedup": 14.059536372610783,
+      "cpu_reduction_pct": 92.88023031480975,
+      "decompression_speedup": 4.263146281867099
+    },
+    {
+      "kind": "all",
+      "compressed_size_reduction_pct": 31.438897038743374,
+      "compression_speedup": 13.112960737541204,
+      "cpu_reduction_pct": 92.36977656429275,
+      "decompression_speedup": 4.104854375634828
+    }
+  ],
+  "full_files": [
+    {
+      "dataset": "F01-archives-json",
+      "day": 1,
+      "kind": "archives-json",
+      "algorithm": "gzip",
+      "raw_bytes": 1809027077,
+      "compressed_bytes": 108895187,
+      "compression_ratio": 16.61255310576766,
+      "compression_wall_s": 24.614349106,
+      "compression_cpu_s": 24.582389,
+      "compression_rss_kib": 6264.0,
+      "decompression_wall_s": 4.640376314,
+      "decompression_cpu_s": 4.584789,
+      "repetitions": 3
+    },
+    {
+      "dataset": "F01-archives-json",
+      "day": 1,
+      "kind": "archives-json",
+      "algorithm": "zstd",
+      "raw_bytes": 1809027077,
+      "compressed_bytes": 69842423,
+      "compression_ratio": 25.901550938460424,
+      "compression_wall_s": 1.883098853,
+      "compression_cpu_s": 1.8070719999999998,
+      "compression_rss_kib": 9388.0,
+      "decompression_wall_s": 0.943003038,
+      "decompression_cpu_s": 0.942393,
+      "repetitions": 3
+    },
+    {
+      "dataset": "F07-archives-json",
+      "day": 7,
+      "kind": "archives-json",
+      "algorithm": "gzip",
+      "raw_bytes": 2014638542,
+      "compressed_bytes": 117020951,
+      "compression_ratio": 17.216049987493264,
+      "compression_wall_s": 26.985419563,
+      "compression_cpu_s": 26.969082,
+      "compression_rss_kib": 6276.0,
+      "decompression_wall_s": 4.918926412,
+      "decompression_cpu_s": 4.863438,
+      "repetitions": 3
+    },
+    {
+      "dataset": "F07-archives-json",
+      "day": 7,
+      "kind": "archives-json",
+      "algorithm": "zstd",
+      "raw_bytes": 2014638542,
+      "compressed_bytes": 74516833,
+      "compression_ratio": 27.036019391752735,
+      "compression_wall_s": 1.955010368,
+      "compression_cpu_s": 1.9515870000000002,
+      "compression_rss_kib": 9380.0,
+      "decompression_wall_s": 1.065928673,
+      "decompression_cpu_s": 1.05033,
+      "repetitions": 3
+    }
+  ],
+  "daily": {
+    "gzip": 17.134434117,
+    "zstd": 3.392626011
+  },
+  "bootstrap_95": [
+    [
+      27.91195531624804,
+      12.64783178396844
+    ],
+    [
+      34.26001619781509,
+      13.520298062886535
+    ]
+  ]
+}
